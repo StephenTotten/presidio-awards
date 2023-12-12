@@ -3,9 +3,21 @@ app: aws-node-serverless
 service: aws-node-serverless
 frameworkVersion: '3'
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs20.x
+  iam:
+    role:
+      name: award-role
+      statements:
+        - Effect: 'Allow'
+          Action: 
+            - "cognito-idp:AdminAddUserToGroup"
+            - "cognito-idp:AdminRemoveUserFromGroup"
+          Resource: "arn:aws:cognito-idp:us-east-1:877969058937:userpool/us-east-1_JANIXGEDx"
 
 functions:
   api:
@@ -14,3 +26,13 @@ functions:
       - httpApi:
           path: /
           method: get
+  params:
+    handler: AdminAddAndRemoveRoles.handler
+    events:
+      - httpApi:
+          path: /admin/{action}
+          method: post
+          request:
+            parameters:
+              paths:
+                action: true
