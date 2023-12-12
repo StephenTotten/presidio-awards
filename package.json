@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.470.0",
     "aws-sdk": "^2.1516.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -23,6 +24,7 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "serverless-offline": "^13.3.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   }
