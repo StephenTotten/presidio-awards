@@ -5,7 +5,9 @@ const Landing = () => {
         <div className="center">
           <h2>Welcome to</h2>
           <h1>Presidio Awards</h1>
-          <Button text="Log In"/>
+          <Button 
+          text="Log In"
+          />
         </div>
       );
 }
