@@ -154,3 +154,30 @@ button:active {
               0 0 50px #008CBA,
               0 0 100px #008CBA;
 }
+
+/* Add this style to your existing CSS */
+
+.login-box .user-box select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box select:focus ~ label,
+.login-box .user-box select:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #008CBA;
+  font-size: 12px;
+}
+
+.login-box .user-box select option {
+  color: #000; /* Adjust the text color of dropdown options */
+  background: #fff; /* Adjust the background color of dropdown options */
+}
