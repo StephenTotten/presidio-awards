@@ -11,7 +11,7 @@ const Nomination: React.FC = () => {
           <label>Employee Name</label>
         </div>
         <div className="user-box">
-          <input type="password" name="" required={true} />
+          <input type="text" name="" required={true} />
           <label>Employee Email</label>
         </div>
         <div className="user-box">
@@ -25,7 +25,7 @@ const Nomination: React.FC = () => {
           </select>
         </div>
         <div className="user-box">
-          <input type="password" name="" required={true} />
+          <input type="text" name="" required={true} />
           <label>Reason for Nomination</label>
         </div>
         <Button text="Submit"></Button>
