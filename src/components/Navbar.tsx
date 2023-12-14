@@ -4,8 +4,9 @@ import Button from '../components/Button';
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <Button text="My Profile"/>
+      <Button text="Dashboard"/>
       <Button text="Nominate"/>
+      <Button text="Logout"/>
 
     </nav>
   );

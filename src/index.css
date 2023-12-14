@@ -183,17 +183,11 @@ button:active {
 
 .navbar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #008CBA;
   width: 100dvw;
   height: 3rem;
-}
-
-.navbar button {
-  background-color: white;
-  color: black;
 }
 
 .navbar h1 {
