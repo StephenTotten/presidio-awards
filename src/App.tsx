@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Nomination from './pages/Nomination'
 import Registration from './pages/Registration'
 import Navbar from './components/Navbar';
+import Approval from './pages/Approval';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/nomination" element={<Nomination />} />
+        <Route path="/approval" element={<Approval />} />
       </Routes>
     </Router>
   )

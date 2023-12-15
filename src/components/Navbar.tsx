@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <Button text="Dashboard"/>
       <Button text="Nominate"/>
-      <Button text="Logout"/>
+      <Button text="Logout" id="logoutButton"/>
 
     </nav>
   );

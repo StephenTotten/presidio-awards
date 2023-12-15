@@ -181,3 +181,24 @@ button:active {
   font-size: 12px;
   margin-right: 2rem;
 }
+
+#logoutButton {
+  background-color: rgb(194, 1, 1);
+}
+
+/* APPROVAL PAGE STYLING */
+.nomTitle {
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 1px #fff;
+}
+
+.nominations {
+  display: flex;
+  margin-left: 4rem;
+  justify-content: center;
+}
+
+#rejectButton {
+  background-color: rgb(194, 1, 1);
+}
