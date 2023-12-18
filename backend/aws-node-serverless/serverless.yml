@@ -6,6 +6,10 @@ frameworkVersion: '3'
 plugins:
   - serverless-offline
 
+package:
+  include:
+    - node_modules/**
+
 provider:
   name: aws
   runtime: nodejs20.x
@@ -36,3 +40,9 @@ functions:
             parameters:
               paths:
                 action: true
+  db:
+    handler: dbconnection.handler
+    events:
+      - httpApi:
+          path: /test
+          method: get
