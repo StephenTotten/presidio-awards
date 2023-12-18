@@ -261,10 +261,14 @@ button:active {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: black;
+  color: white;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
   background: transparent;
+}
+
+.modal-content option {
+  background: #242424;
 }

@@ -20,7 +20,7 @@ const RoleModal: React.FC<RoleModalProps> = ({ isOpen, onClose, onRoleChange }) 
     <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Select Role</h2>
+        <h2>Select New Role</h2>
         <div className="user-box">
           <select
             value={selectedRole}
