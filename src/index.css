@@ -200,7 +200,18 @@ button:hover {
 .nomTitle {
   display: flex;
   justify-content: center;
-  text-shadow: 1px 1px #fff;
+  color:rgb(51, 51, 47);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f7b21f, 0 0 40px #f7b21f, 0 0 50px #f7b21f, 0 0 60px #f7b21f, 0 0 70px #f7b21f;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #f3ca71, 0 0 40px #f3ca71, 0 0 50px #f3ca71, 0 0 60px #f3ca71, 0 0 70px #f3ca71, 0 0 80px #f3ca71;
+  }
 }
 
 .nominations {
