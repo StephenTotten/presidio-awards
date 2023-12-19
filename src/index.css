@@ -19,37 +19,47 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #008CBA;
+  color: #f7b21f;
 }
 
 h2 {
-  color: #008CBA;
+  color: white;
 }
 
 /* BUTTON STYLING */
+
 button {
-  padding: 15px 25px;
+  border: 1px solid;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 900;
+  padding: 1.2rem 2rem;
+  position: relative;
+  text-transform: uppercase;
   margin: 1rem;
-  font-size: 24px;
-  text-align: center;
   cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #008CBA;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  background: transparent;
+  color: white;
 }
 
 button:hover {
-  background-color: #006688;
+  -webkit-animation: pulse 0.5s;
+  animation: pulse 0.5s;
+  box-shadow: 0 0 0 2em transparent;
 }
 
-button:active {
-  background-color: #008CBA;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fff;
+  }
 }
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fff;
+  }
+}
+
 
 /* CENTER CLASS */
 .center {
@@ -177,13 +187,9 @@ button:active {
 
 }
 
-.navbar button {
-  font-size: 12px;
-  margin-right: 2rem;
-}
-
 #logoutButton {
-  background-color: rgb(194, 1, 1);
+  background: transparent;
+  color: #f7b21f;
 }
 
 /* APPROVAL PAGE STYLING */
@@ -200,7 +206,7 @@ button:active {
 }
 
 #rejectButton {
-  background-color: rgb(194, 1, 1);
+  color: rgb(194, 1, 1);
 }
 
 /* MODAL STYLING */
