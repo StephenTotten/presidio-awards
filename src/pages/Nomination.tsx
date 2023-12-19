@@ -6,10 +6,6 @@ const Nomination: React.FC = () => {
     <div className="login-box">
       <h2>Nomination Form</h2>
       <form>
-      <div className="user-box">
-          <input type="text" name="" required={true} />
-          <label>Nominated By</label>
-        </div>
         <div className="user-box">
           <input type="text" name="" required={true} />
           <label>Nominee Name</label>
@@ -42,6 +38,10 @@ const Nomination: React.FC = () => {
             <option value="drona">Drona</option>
             <option value="aboveBeyond">Above & Beyond</option>
           </select>
+        </div>
+        <div className="user-box">
+          <input type="text" name="" required={true} />
+          <label>Project Impacted</label>
         </div>
         <div className="user-box">
           <input type="text" name="" required={true} />
