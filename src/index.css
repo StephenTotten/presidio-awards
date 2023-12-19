@@ -243,6 +243,8 @@ button:hover {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   background: #242424;
   padding: 20px;
   border-radius: 10px;

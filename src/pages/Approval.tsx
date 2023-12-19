@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Button from '../components/Button';
 import RejectionModal from '../components/RejectionModal';
+import ApprovalModal from '../components/ApprovalModal';
 
 const Approval = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isRejectOpen, setRejectOpen] = useState(false);
+  const [isApproveOpen, setApproveOpen] = useState(false);
 
   const handleReject = (reason: string) => {
     console.log('Reason for rejection:', reason);
@@ -14,14 +16,19 @@ const Approval = () => {
       <h1 className="nomTitle">Nominations</h1>
       <div className="nominations">
         <h2>Nick Truong: Spot Award</h2>
-        <Button text="Approve" />
-        <Button text="Reject" id="rejectButton" onClick={() => setModalOpen(true)} />
+        <Button text="Approve" onClick={() => setApproveOpen(true)}/>
+        <Button text="Reject" id="rejectButton" onClick={() => setRejectOpen(true)} />
       </div>
 
       <RejectionModal
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
+        isOpen={isRejectOpen}
+        onClose={() => setRejectOpen(false)}
         onReject={handleReject}
+      />
+
+      <ApprovalModal
+        isOpen={isApproveOpen}
+        onClose={() => setApproveOpen(false)}
       />
     </>
   );
