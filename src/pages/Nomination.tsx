@@ -3,7 +3,7 @@ import Button from '../components/Button';
 
 const Nomination: React.FC = () => {
   return (
-    <div className="login-box">
+    <div className="nomination-box">
       <h2>Nomination Form</h2>
       <form>
         <div className="user-box">
