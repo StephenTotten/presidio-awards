@@ -24,13 +24,13 @@ provider:
           Resource: "arn:aws:cognito-idp:us-east-1:877969058937:userpool/us-east-1_JANIXGEDx"
 
 functions:
-  api:
+  testAPI:
     handler: index.handler
     events:
       - httpApi:
           path: /
           method: get
-  params:
+  adminRoles:
     handler: AdminAddAndRemoveRoles.handler
     events:
       - httpApi:
@@ -46,3 +46,44 @@ functions:
       - httpApi:
           path: /test
           method: get
+  getNominationById:
+    handler: NominationGetById.handler
+    events:
+      - httpApi:
+          path: /nomination/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+  getNominationPersonal:
+    handler: NominationGetPersonal.handler
+    events:
+      - httpApi:
+          path: /nomination/personal
+          method: get
+  getAllNominations:
+    handler: NominationGetAll.handler
+    events:
+      - httpApi:
+          path: /nomination
+          method: get
+  postNomination:
+    handler: NominationPost.handler
+    events:
+      - httpApi:
+          path: /nomination
+          method: post
+  postApproval:
+    handler: ApprovalPost.handler
+    events:
+      - httpApi:
+          path: /approval
+          method: post
+  getWinners:
+    handler: WinnerGetAll.handler
+    events:
+      - httpApi:
+          path: /winners
+          method: get
+
