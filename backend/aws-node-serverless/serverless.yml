@@ -30,12 +30,14 @@ functions:
       - httpApi:
           path: /
           method: get
+          cors: true
   adminRoles:
     handler: AdminAddAndRemoveRoles.handler
     events:
       - httpApi:
           path: /admin/{action}
           method: post
+          cors: true
           request:
             parameters:
               paths:
@@ -52,6 +54,7 @@ functions:
       - httpApi:
           path: /nomination/{id}
           method: get
+          cors: true
           request:
             parameters:
               paths:
@@ -62,28 +65,33 @@ functions:
       - httpApi:
           path: /nomination/personal
           method: get
+          cors: true
   getAllNominations:
     handler: NominationGetAll.handler
     events:
       - httpApi:
           path: /nomination
           method: get
+          cors: true
   postNomination:
     handler: NominationPost.handler
     events:
       - httpApi:
           path: /nomination
           method: post
+          cors: true
   postApproval:
     handler: ApprovalPost.handler
     events:
       - httpApi:
           path: /approval
           method: post
+          cors: true
   getWinners:
     handler: WinnerGetAll.handler
     events:
       - httpApi:
           path: /winners
           method: get
+          cors: true
 
