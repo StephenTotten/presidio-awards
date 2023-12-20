@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import axios from 'axios';
 
 interface AddRoleModalProps {
   isOpen: boolean;
@@ -10,10 +11,30 @@ interface AddRoleModalProps {
 const RoleModal: React.FC<AddRoleModalProps> = ({ isOpen, onClose, onRoleChange }) => {
   const [selectedRole, setSelectedRole] = useState('');
 
-  const handleRoleChange = () => {
-    onRoleChange(selectedRole);
-    setSelectedRole('');
-    onClose();
+  const handleRoleChange = async () => {
+    try {
+      if (!selectedRole) {
+        console.error('Please select a role before submitting.');
+        return;
+      }
+
+      const requestBody = {
+        username: 'bob',
+        addedRole: selectedRole,
+      };
+
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}admin/add`,
+        requestBody
+      );
+
+      console.log('Response:', response.data);
+      onRoleChange(selectedRole);
+      setSelectedRole('');
+      onClose();
+    } catch (error) {
+      console.error('Error sending POST request:', error);
+    }
   };
 
   return (
