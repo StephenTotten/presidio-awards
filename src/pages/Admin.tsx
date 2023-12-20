@@ -1,23 +1,34 @@
 import { useState } from 'react';
 import Button from '../components/Button';
-import RoleModal from '../components/RoleModal';
+import AddRoleModal from '../components/AddRoleModal';
+import RemoveRoleModal from '../components/RemoveRoleModal';
 
 const Admin = () => {
-  const [isRoleModalOpen, setRoleModalOpen] = useState(false);
+  const [isAddRoleModalOpen, setAddRoleModalOpen] = useState(false);
+  const [isRemoveRoleModalOpen, setRemoveRoleModalOpen] = useState(false);
 
   return (
     <div className="center">
-      <h2>Name: Stephen Totten</h2>
-      <h2>Role: Approver</h2>
-      <Button text="Change Role" onClick={() => setRoleModalOpen(true)} />
+      <h2>Name: bob</h2>
+      <Button text="Add Role" onClick={() => setAddRoleModalOpen(true)} />
+      <Button text="Remove Role" onClick={() => setRemoveRoleModalOpen(true)} />
       
-      <RoleModal
-        isOpen={isRoleModalOpen}
-        onClose={() => setRoleModalOpen(false)}
+      <AddRoleModal
+        isOpen={isAddRoleModalOpen}
+        onClose={() => setAddRoleModalOpen(false)}
         onRoleChange={(role: any) => {
 
           console.log('New role selected:', role);
-          setRoleModalOpen(false);
+          setAddRoleModalOpen(false);
+        }}
+      />
+      <RemoveRoleModal
+        isOpen={isRemoveRoleModalOpen}
+        onClose={() => setRemoveRoleModalOpen(false)}
+        onRoleChange={(role: any) => {
+
+          console.log('New role selected:', role);
+          setRemoveRoleModalOpen(false);
         }}
       />
     </div>

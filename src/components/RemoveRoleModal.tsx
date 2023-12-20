@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Button from '../components/Button';
+import Button from './Button';
 
-interface RoleModalProps {
+interface RemoveRoleModalProps {
   isOpen: boolean;
   onClose: () => void;
   onRoleChange: (role: string) => void;
 }
 
-const RoleModal: React.FC<RoleModalProps> = ({ isOpen, onClose, onRoleChange }) => {
+const RoleModal: React.FC<RemoveRoleModalProps> = ({ isOpen, onClose, onRoleChange }) => {
   const [selectedRole, setSelectedRole] = useState('');
 
   const handleRoleChange = () => {
@@ -20,7 +20,7 @@ const RoleModal: React.FC<RoleModalProps> = ({ isOpen, onClose, onRoleChange }) 
     <div className={`modal ${isOpen ? 'open' : ''}`}>
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Select New Role</h2>
+        <h2>Remove Role</h2>
         <div className="user-box">
           <select
             value={selectedRole}
@@ -28,9 +28,10 @@ const RoleModal: React.FC<RoleModalProps> = ({ isOpen, onClose, onRoleChange }) 
             required
           >
             <option value="" disabled></option>
-            <option value="employee">Employee</option>
-            <option value="approver">Approver</option>
-            <option value="superApprover">Super Approver</option>
+            <option value="EMPLOYEE">Employee</option>
+            <option value="APPROVER">Approver</option>
+            <option value="SUPER-APPROVER">Super Approver</option>
+            <option value="ADMIN">Admin</option>
           </select>
         </div>
         <Button text="Submit" onClick={handleRoleChange} />
