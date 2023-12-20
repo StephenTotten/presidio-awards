@@ -6,6 +6,7 @@ import Registration from './pages/Registration'
 import Navbar from './components/Navbar';
 import Approval from './pages/Approval';
 import Admin from './pages/Admin';
+import Dashboard from './pages/Dashboard';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/nomination" element={<Nomination />} />
         <Route path="/approval" element={<Approval />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   )

@@ -39,7 +39,7 @@ const Approval = () => {
   const handleDetailsClick = (nomineeId: number) => {
     setDetailsModalOpen(true);
 
-    axios.get<NomineeDetails>(`https://2fqd5lcig2.execute-api.us-east-1.amazonaws.com/nomination/${nomineeId}`)
+    axios.get<NomineeDetails>(`${import.meta.env.VITE_BACKEND_URL}nomination/${nomineeId}`)
       .then((response: AxiosResponse<NomineeDetails>) => setNomineeDetails(response.data))
       .catch(error => console.error('Error fetching nominee details:', error));
   };
