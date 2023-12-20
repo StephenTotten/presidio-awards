@@ -12,10 +12,19 @@ interface Nominee {
   awardId: string;
 }
 
+interface NomineeDetails {
+  nominator: string;
+  nominee: string;
+  awardType: string;
+}
+
 const Approval = () => {
   const [isRejectOpen, setRejectOpen] = useState(false);
   const [isApproveOpen, setApproveOpen] = useState(false);
   const [nomineeData, setNomineeData] = useState<Nominee[] | null>(null);
+  const [detailsModalOpen, setDetailsModalOpen] = useState(false);
+ 
+  const [nomineeDetails, setNomineeDetails] = useState<NomineeDetails | null>(null);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}nomination`)
@@ -27,13 +36,22 @@ const Approval = () => {
     console.log('Reason for rejection:', reason);
   };
 
+  const handleDetailsClick = (nomineeId: number) => {
+    setDetailsModalOpen(true);
+
+    axios.get<NomineeDetails>(`https://2fqd5lcig2.execute-api.us-east-1.amazonaws.com/nomination/${nomineeId}`)
+      .then((response: AxiosResponse<NomineeDetails>) => setNomineeDetails(response.data))
+      .catch(error => console.error('Error fetching nominee details:', error));
+  };
+
   return (
     <>
       <h1 className="nomTitle">Nominations</h1>
       <div className="nominations">
         {nomineeData && nomineeData.map(nominee => (
-          <div key={nominee.nominationId}>
-            <h2>{`${nominee.nominee}: ${nominee.awardType}, Nominated by ${nominee.nominator}`}</h2>
+          <div key={nominee.nominationId} id="nominee">
+            <h2>{`${nominee.nominee}: ${nominee.awardType}`}</h2>
+            <Button text="Details" onClick={() => handleDetailsClick(nominee.nominationId)} />
             <Button text="Approve" onClick={() => setApproveOpen(true)} />
             <Button text="Reject" id="rejectButton" onClick={() => setRejectOpen(true)} />
           </div>
@@ -50,6 +68,22 @@ const Approval = () => {
         isOpen={isApproveOpen}
         onClose={() => setApproveOpen(false)}
       />
+
+      {detailsModalOpen && (
+        <div className="detailsModal">
+          <h2>Nominee Details</h2>
+          {nomineeDetails ? (
+            <>
+              <p>Nominated By: {nomineeDetails.nominator}</p>
+              <p>Nominee: {nomineeDetails.nominee}</p>
+              <p>Award Type: {nomineeDetails.awardType}</p>
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
+          <Button text="Close" onClick={() => setDetailsModalOpen(false)} />
+        </div>
+      )}
     </>
   );
 };
