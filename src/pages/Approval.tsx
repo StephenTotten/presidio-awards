@@ -23,12 +23,13 @@ const Approval = () => {
   const [isApproveOpen, setApproveOpen] = useState(false);
   const [nomineeData, setNomineeData] = useState<Nominee[] | null>(null);
   const [detailsModalOpen, setDetailsModalOpen] = useState(false);
- 
   const [nomineeDetails, setNomineeDetails] = useState<NomineeDetails | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}nomination`)
       .then((response: AxiosResponse<Nominee[]>) => setNomineeData(response.data))
+      .then(() => setIsLoading(false))
       .catch(error => console.error('Error fetching nominee data:', error));
   }, []);
 
@@ -48,14 +49,18 @@ const Approval = () => {
     <>
       <h1 className="nomTitle">Nominations</h1>
       <div className="nominations">
-        {nomineeData && nomineeData.map(nominee => (
+      {isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+        nomineeData && nomineeData.map(nominee => (
           <div key={nominee.nominationId} id="nominee">
             <h2>{`${nominee.nominee}: ${nominee.awardType}`}</h2>
             <Button text="Details" onClick={() => handleDetailsClick(nominee.nominationId)} />
             <Button text="Approve" onClick={() => setApproveOpen(true)} />
             <Button text="Reject" id="rejectButton" onClick={() => setRejectOpen(true)} />
           </div>
-        ))}
+        ))
+        )}
       </div>
 
       <RejectionModal
