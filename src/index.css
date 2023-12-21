@@ -60,7 +60,9 @@ button:hover {
   }
 }
 
-
+#winbutton {
+  color:#f7b21f;
+}
 /* CENTER CLASS */
 .center {
   display: flex;
@@ -70,6 +72,10 @@ button:hover {
   text-align: center;
   height: 100vh;
   width: 100%;
+}
+
+.center a {
+  text-decoration: none;
 }
 
 /* FORM BOX STYLING */
