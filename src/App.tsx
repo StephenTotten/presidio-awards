@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Approval from './pages/Approval';
 import Admin from './pages/Admin';
 import Dashboard from './pages/Dashboard';
+import Winners from './pages/Winners';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/approval" element={<Approval />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/winners" element={<Winners />} />
       </Routes>
     </Router>
   )
