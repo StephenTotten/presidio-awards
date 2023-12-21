@@ -14,6 +14,9 @@ const Navbar: React.FC = () => {
       <Link to="/nomination">
         <Button text="Nominate"/>
       </Link>
+      <Link to="/dashboard">
+        <Button text="My History"/>
+      </Link>
       <Button text="Logout" id="logoutButton"/>
 
     </nav>

@@ -1,26 +1,41 @@
 import { useState } from 'react';
 import Button from '../components/Button';
-import RoleModal from '../components/RoleModal';
+import AddRoleModal from '../components/AddRoleModal';
+import RemoveRoleModal from '../components/RemoveRoleModal';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
-  const [isRoleModalOpen, setRoleModalOpen] = useState(false);
+  const [isAddRoleModalOpen, setAddRoleModalOpen] = useState(false);
+  const [isRemoveRoleModalOpen, setRemoveRoleModalOpen] = useState(false);
 
   return (
-    <div className="center">
-      <h2>Name: Stephen Totten</h2>
-      <h2>Role: Approver</h2>
-      <Button text="Change Role" onClick={() => setRoleModalOpen(true)} />
-      
-      <RoleModal
-        isOpen={isRoleModalOpen}
-        onClose={() => setRoleModalOpen(false)}
-        onRoleChange={(role: any) => {
+      <div className="center">
+        <Link to="../winners">
+          <Button text="List of Winners" id="winbutton"/>
+        </Link>
+        <h2>Name: bob</h2>
+        <Button text="Add Role" onClick={() => setAddRoleModalOpen(true)} />
+        <Button text="Remove Role" onClick={() => setRemoveRoleModalOpen(true)} />
 
-          console.log('New role selected:', role);
-          setRoleModalOpen(false);
-        }}
-      />
-    </div>
+        <AddRoleModal
+          isOpen={isAddRoleModalOpen}
+          onClose={() => setAddRoleModalOpen(false)}
+          onRoleChange={(role: any) => {
+
+            console.log('New role selected:', role);
+            setAddRoleModalOpen(false);
+          }}
+        />
+        <RemoveRoleModal
+          isOpen={isRemoveRoleModalOpen}
+          onClose={() => setRemoveRoleModalOpen(false)}
+          onRoleChange={(role: any) => {
+
+            console.log('New role selected:', role);
+            setRemoveRoleModalOpen(false);
+          }}
+        />
+      </div>
   );
 }
 
