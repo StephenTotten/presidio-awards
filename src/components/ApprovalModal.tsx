@@ -1,16 +1,22 @@
 import React from 'react';
 import Button from '../components/Button';
+import axios from 'axios';
 
 interface ApprovalModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const RejectionModal: React.FC<ApprovalModalProps> = ({ isOpen, onClose }) => {
+const ApprovalModal: React.FC<ApprovalModalProps> = ({ isOpen, onClose }) => {
 
-  const handleApprove = () => {
-    console.log('Nominee Approved!');
-    onClose();
+  const handleApprove = async () => {
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}approval`);
+      console.log(response.data);
+      onClose();
+    } catch (error) {
+      console.error('Error while making the POST request:', error);
+    }
   };
 
   return (
@@ -24,4 +30,4 @@ const RejectionModal: React.FC<ApprovalModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default RejectionModal;
+export default ApprovalModal;
