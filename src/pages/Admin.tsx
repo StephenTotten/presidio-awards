@@ -25,7 +25,7 @@ const Admin = () => {
         const response = await axios.get(
           'https://2fqd5lcig2.execute-api.us-east-1.amazonaws.com/admin/listusers',
           {
-            params: { group: 'EMPLOYEE' }
+            data: { group: 'EMPLOYEE' }
           }
         );
 
