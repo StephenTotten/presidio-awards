@@ -406,4 +406,5 @@ button:hover {
 th {
   font-size: xx-large;
   padding: 1rem;
+  cursor: pointer;
 }
