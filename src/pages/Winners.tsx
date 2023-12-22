@@ -24,15 +24,24 @@ const Winners = () => {
   }, []);
 
   return (
-    <div className="center">
-      <h2>List of Winners</h2>
-      <ul>
-        {winners.map(winner => (
-          <li key={winner.nominationId}>
-            <strong>Winner:</strong> {winner.nominee}, <strong>Award Won:</strong> {winner.awardType}
-          </li>
-        ))}
-      </ul>
+    <div className="winner">
+      <h1>List of Winners</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Winner</th>
+            <th>Award Won</th>
+          </tr>
+        </thead>
+        <tbody>
+          {winners.map(winner => (
+            <tr key={winner.nominationId}>
+              <td>{winner.nominee}</td>
+              <td>{winner.awardType}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

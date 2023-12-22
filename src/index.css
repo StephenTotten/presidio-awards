@@ -63,6 +63,7 @@ button:hover {
 #winbutton {
   color:#f7b21f;
 }
+
 /* CENTER CLASS */
 .center {
   display: flex;
@@ -389,4 +390,20 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* LIST OF WINNERS STYLING */
+
+.winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+th {
+  font-size: xx-large;
+  padding: 1rem;
 }
