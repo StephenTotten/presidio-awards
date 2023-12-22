@@ -408,3 +408,8 @@ th {
   padding: 1rem;
   cursor: pointer;
 }
+
+th span {
+  font-size: large;
+  margin: .5rem;
+}
