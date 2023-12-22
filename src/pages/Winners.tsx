@@ -43,8 +43,8 @@ const Winners = () => {
   });
 
   return (
-    <div className="center">
-      <h2>List of Winners</h2>
+    <div className="winner">
+      <h1>List of Winners</h1>
       <table>
         <thead>
           <tr>
