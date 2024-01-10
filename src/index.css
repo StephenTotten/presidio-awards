@@ -1,0 +1,459 @@
+/* GENERAL STYLING */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-image: url("./assets/golden-awards-background.jpg");
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #f7b21f;
+}
+
+h2 {
+  color: white;
+}
+
+/* BUTTON STYLING */
+
+button {
+  border: 1px solid;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 900;
+  padding: 1.2rem 2rem;
+  position: relative;
+  text-transform: uppercase;
+  margin: 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+}
+
+button:hover {
+  -webkit-animation: pulse 0.5s;
+  animation: pulse 0.5s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fff;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #fff;
+  }
+}
+
+#winbutton {
+  color:#f7b21f;
+}
+
+/* CENTER CLASS */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.center a {
+  text-decoration: none;
+}
+
+/* FORM BOX STYLING */
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #f7b21f;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #f7b21f;
+  font-size: 12px;
+}
+
+/* NOMINATION FORM STYLING */
+
+.nomination-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 80dvh;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.nomination-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #f7b21f;
+  text-align: center;
+}
+
+.nomination-box .user-box {
+  position: relative;
+}
+
+.nomination-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.nomination-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.nomination-box .user-box input:focus ~ label,
+.nomination-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #f7b21f;
+  font-size: 12px;
+}
+
+.nomination-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #f7b21f;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.nomination-box a:hover {
+  background: #f7b21f;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f7b21f,
+              0 0 25px #f7b21f,
+              0 0 50px #f7b21f,
+              0 0 100px #f7b21f;
+}
+
+.nomination-box .user-box select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.nomination-box .user-box select:focus ~ label,
+.nomination-box .user-box select:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #f7b21f;
+  font-size: 12px;
+}
+
+.nomination-box .user-box select option {
+  color: #000;
+  background: #fff;
+}
+
+/* NAVBAR STYLING */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100dvw;
+
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+#logoutButton {
+  background: transparent;
+  color: #f7b21f;
+}
+
+/* APPROVAL PAGE STYLING */
+.nomTitle {
+  display: flex;
+  justify-content: center;
+  color:rgb(51, 51, 47);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f7b21f, 0 0 40px #f7b21f, 0 0 50px #f7b21f, 0 0 60px #f7b21f, 0 0 70px #f7b21f;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #f3ca71, 0 0 40px #f3ca71, 0 0 50px #f3ca71, 0 0 60px #f3ca71, 0 0 70px #f3ca71, 0 0 80px #f3ca71;
+  }
+}
+
+.nominations {
+  display: flex;
+  margin-left: 4rem;
+  justify-content: center;
+}
+
+#rejectButton {
+  color: rgb(194, 1, 1);
+}
+
+#nominee {
+  margin: 2rem;
+}
+
+/* MODAL STYLING */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #242424;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal h2 {
+  color: #f7b21f;
+}
+
+.modal .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.modal-content select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.modal-content option {
+  background: #242424;
+}
+
+.detailsModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: #242424;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+/* MY HISTORY STYLING */
+
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LIST OF WINNERS STYLING */
+
+.winner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10rem;
+}
+
+th {
+  font-size: xx-large;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+th span {
+  font-size: large;
+  margin: .5rem;
+}
+
+/* lineup class and keyframes */
+.lineUp {
+  animation: 2s anim-lineUp ease-out;
+}
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+#lineUp {
+  animation: 2s anim-lineUp ease-out;
+}
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

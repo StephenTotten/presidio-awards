@@ -1,0 +1,98 @@
+org: nickdtruong
+app: aws-node-serverless
+service: aws-node-serverless
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+
+package:
+  include:
+    - node_modules/**
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  iam:
+    role:
+      name: award-role
+      statements:
+        - Effect: 'Allow'
+          Action: 
+            - "cognito-idp:AdminAddUserToGroup"
+            - "cognito-idp:AdminRemoveUserFromGroup"
+          Resource: "arn:aws:cognito-idp:us-east-1:877969058937:userpool/us-east-1_JANIXGEDx"
+
+functions:
+  testAPI:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+          cors: true
+  adminRoles:
+    handler: AdminAddAndRemoveRoles.handler
+    events:
+      - httpApi:
+          path: /admin/{action}
+          method: post
+          cors: true
+          request:
+            parameters:
+              paths:
+                action: true
+  db:
+    handler: dbconnection.handler
+    events:
+      - httpApi:
+          path: /test
+          method: get
+          cors: true
+  getNominationById:
+    handler: NominationGetById.handler
+    events:
+      - httpApi:
+          path: /nomination/{id}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  getNominationPersonal:
+    handler: NominationGetPersonal.handler
+    events:
+      - httpApi:
+          path: /nomination/personal
+          method: get
+          cors: true
+  getAllNominations:
+    handler: NominationGetAll.handler
+    events:
+      - httpApi:
+          path: /nomination
+          method: get
+          cors: true
+  postNomination:
+    handler: NominationPost.handler
+    events:
+      - httpApi:
+          path: /nomination
+          method: post
+          cors: true
+  postApproval:
+    handler: ApprovalPost.handler
+    events:
+      - httpApi:
+          path: /approval
+          method: post
+          cors: true
+  getWinners:
+    handler: WinnerGetAll.handler
+    events:
+      - httpApi:
+          path: /winners
+          method: get
+          cors: true
+
