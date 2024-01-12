@@ -17,8 +17,9 @@ const Navbar: React.FC = () => {
       <Link to="/dashboard">
         <Button text="My History"/>
       </Link>
-      <Button text="Logout" id="logoutButton"/>
-
+      <Link to="/">
+        <Button text="Logout" id="logoutButton"/>
+      </Link>
     </nav>
   );
 };
